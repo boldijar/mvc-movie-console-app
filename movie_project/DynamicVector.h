@@ -16,6 +16,9 @@ public:
 	/* removes item at position*/
 	void removeAt(int position);
 
+	/* clones a vector */
+	DynamicVector clone();
+
 	// now calling DynamicVector[i] will work
 	Movie &operator[](int i)
 	{

@@ -1,5 +1,5 @@
 #include "Controller.h"
-
+#include <string>
 
 
 Controller::Controller()
@@ -43,3 +43,23 @@ DynamicVector Controller::findMoviesOfTitle(string title)
 	}
 	return list;
 }
+
+DynamicVector Controller::getSortedMoviesByYear()
+{
+	DynamicVector clone = this->repository.movies.clone();
+	for (int i = 0; i < clone.size() - 1; i++)
+	{
+		for (int j = i + 1; j < clone.size(); j++)
+		{
+			if (clone[i].year > clone[j].year)
+			{
+				Movie aux = clone[i];
+				clone[i] = clone[j];
+				clone[j] = aux;
+			}
+		}
+	}
+		return clone;
+}
+
+

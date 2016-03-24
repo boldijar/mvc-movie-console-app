@@ -11,5 +11,6 @@ public:
 	Movie findMovieByTitle(string title);
 	DynamicVector findMoviesOfYear(int year);
 	DynamicVector findMoviesOfTitle(string);
+	DynamicVector getSortedMoviesByYear();
 };
 

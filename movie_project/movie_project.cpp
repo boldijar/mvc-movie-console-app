@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <algorithm>
 #include "TestApp.h"
 using namespace std;
 

@@ -66,5 +66,14 @@ public:
 		assert(controller2.findMoviesOfTitle("t1").size() == 1);
 		assert(controller2.findMoviesOfTitle("titanic").size() == 0);
 		assert(controller2.findMoviesOfTitle("t5").size() == 2);
+
+
+		Controller controller3;
+		controller3.repository.addMovie(Movie("t1", "g1", "a1", 1));
+		controller3.repository.addMovie(Movie("t2", "g1", "a1", 10));
+		controller3.repository.addMovie(Movie("t3", "g1", "a1", 100));
+		controller3.repository.addMovie(Movie("t4", "g1", "a1", 5));
+
+		assert(controller3.getSortedMoviesByYear()[3].title == "t3");
 	}
 };
