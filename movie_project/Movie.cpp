@@ -10,3 +10,7 @@ Movie::Movie(string title,string genre,string actor,int year)
 	this->year = year;
 	this->id = ID++;
 }
+int Movie::getId()
+{
+	return this->id;
+}
