@@ -62,4 +62,45 @@ DynamicVector Controller::getSortedMoviesByYear()
 		return clone;
 }
 
+DynamicVector Controller::getSortedMoviesByActor()
+{
+	DynamicVector clone = this->repository.movies.clone();
+	for (int i = 0; i < clone.size() - 1; i++)
+	{
+		for (int j = i + 1; j < clone.size(); j++)
+		{
+			if (clone[i].actor.compare(clone[j].actor)>0)
+			{
+				Movie aux = clone[i];
+				clone[i] = clone[j];
+				clone[j] = aux;
+			}
+		}
+	}
+	return clone;
+}
+
+DynamicVector Controller::getSortedMoviesByYearAndGenre()
+{
+	DynamicVector clone = this->repository.movies.clone();
+	for (int i = 0; i < clone.size() - 1; i++)
+	{
+		for (int j = i + 1; j < clone.size(); j++)
+		{
+			if (clone[i].year > clone[j].year)
+			{
+				Movie aux = clone[i];
+				clone[i] = clone[j];
+				clone[j] = aux;
+			}
+			else if (clone[i].year == clone[j].year && clone[i].genre.compare(clone[j].genre)> 0)
+			{
+				Movie aux = clone[i];
+				clone[i] = clone[j];
+				clone[j] = aux;
+			}
+		}
+	}
+	return clone;
+}
 

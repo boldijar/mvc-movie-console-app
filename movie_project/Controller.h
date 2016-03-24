@@ -12,5 +12,7 @@ public:
 	DynamicVector findMoviesOfYear(int year);
 	DynamicVector findMoviesOfTitle(string);
 	DynamicVector getSortedMoviesByYear();
+	DynamicVector getSortedMoviesByActor();
+	DynamicVector getSortedMoviesByYearAndGenre();
 };
 

@@ -69,11 +69,28 @@ public:
 
 
 		Controller controller3;
-		controller3.repository.addMovie(Movie("t1", "g1", "a1", 1));
-		controller3.repository.addMovie(Movie("t2", "g1", "a1", 10));
-		controller3.repository.addMovie(Movie("t3", "g1", "a1", 100));
-		controller3.repository.addMovie(Movie("t4", "g1", "a1", 5));
+		controller3.repository.addMovie(Movie("zlala", "aa", "z1", 1));
+		controller3.repository.addMovie(Movie("t100", "zc", "d1", 10));
+		controller3.repository.addMovie(Movie("smek", "s2", "b1", 100));
+		controller3.repository.addMovie(Movie("val", "dd", "b1", 5));
 
-		assert(controller3.getSortedMoviesByYear()[3].title == "t3");
+		assert(controller3.getSortedMoviesByYear()[3].title == "smek");
+		assert(controller3.getSortedMoviesByActor()[3].title == "zlala");
+
+		Controller controller4;
+		controller4.repository.addMovie(Movie("Movie1", "genre_z1", "author", 1));
+		controller4.repository.addMovie(Movie("Movie2", "genre_d1", "author2", 10));
+		controller4.repository.addMovie(Movie("Movie3", "genre_b1", "author3", 10));
+		controller4.repository.addMovie(Movie("Movie4", "genre_b1", "author4", 5));
+		controller4.repository.addMovie(Movie("Movie5", "genre_b1", "author5", 3));
+
+		DynamicVector sortedVec = controller4.getSortedMoviesByYearAndGenre();
+
+		assert(sortedVec[0].title == "Movie1");
+		assert(sortedVec[1].title == "Movie5");
+		assert(sortedVec[2].title == "Movie4");
+		assert(sortedVec[3].title == "Movie3");
+		assert(sortedVec[4].title == "Movie2");
+
 	}
 };
