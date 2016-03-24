@@ -145,14 +145,19 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Controller.h" />
     <ClInclude Include="DynamicVector.h" />
     <ClInclude Include="Movie.h" />
+    <ClInclude Include="Repository.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TestApp.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Controller.cpp" />
     <ClCompile Include="DynamicVector.cpp" />
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="movie_project.cpp" />
+    <ClCompile Include="Repository.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

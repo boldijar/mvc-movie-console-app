@@ -14,3 +14,4 @@ int Movie::getId()
 {
 	return this->id;
 }
+Movie Movie::MOVIE_EMPTY=Movie("","","",-1);
