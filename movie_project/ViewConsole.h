@@ -17,7 +17,7 @@ private:
 	void showMovie(Movie movie);
 
 	/* shows all movies */
-	void showMovies();
+	void showMovies(DynamicVector<Movie>);
 
 	/* reads a movie from keyboard*/
 	Movie readMovie();
@@ -25,9 +25,11 @@ private:
 	/* adds a movie to repository, if is valid, shows error otherwise */
 	void addMovie(Movie movie);
 
-	/* changes a movie by id */
-
+	/* change a movie by id */
 	void changeMovie();
+
+	/* remove movie at an id */
+	void removeMovie();
 
 public:
 	ViewConsole();

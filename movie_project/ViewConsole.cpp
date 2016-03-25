@@ -2,9 +2,8 @@
 #include <iostream>
 using namespace std;
 
-void ViewConsole::showMovies()
+void ViewConsole::showMovies(DynamicVector<Movie> movies)
 {
-	DynamicVector<Movie> movies = controller.repository.movies;
 	for (int i = 0; i < movies.size(); i++)
 	{
 		showMovie(movies[i]);
@@ -65,6 +64,14 @@ void ViewConsole::changeMovie()
 	}
 }
 
+void ViewConsole::removeMovie()
+{
+	int id;
+	cout << "Id of the movie you want to delete: ";
+	cin >> id;
+	controller.repository.removeMovie(id);
+}
+
 ViewConsole::ViewConsole()
 {
 }
@@ -105,7 +112,7 @@ bool ViewConsole::handleOption(int option)
 		return true;
 	}
 	else if (option == 1) {
-		showMovies();
+		showMovies(controller.repository.movies);
 	}
 	else if (option == 2)
 	{
@@ -115,6 +122,10 @@ bool ViewConsole::handleOption(int option)
 	else if (option == 3)
 	{
 		changeMovie();
+	}
+	else if (option == 4)
+	{
+		removeMovie();
 	}
 	else {
 		cout << "Invalid option." << endl;
