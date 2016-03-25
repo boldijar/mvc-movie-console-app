@@ -1,10 +1,11 @@
 #pragma once
 #pragma once
 #include "DynamicVector.h"
+#include "Movie.h"
 class Repository
 {
 public:
-	DynamicVector movies;
+	DynamicVector<Movie> movies;
 	Repository();
 
 	/*adds a new movie*/

@@ -18,9 +18,9 @@ Movie Controller::findMovieByTitle(string title)
 	return Movie::MOVIE_EMPTY;
 }
 
-DynamicVector Controller::findMoviesOfYear(int year)
+DynamicVector<Movie> Controller::findMoviesOfYear(int year)
 {
-	DynamicVector list;
+	DynamicVector<Movie> list;
 	for (int i = 0; i < this->repository.movies.size(); i++)
 	{
 		if (this->repository.movies[i].year == year)
@@ -31,9 +31,9 @@ DynamicVector Controller::findMoviesOfYear(int year)
 	return list;
 }
 
-DynamicVector Controller::findMoviesOfTitle(string title)
+DynamicVector<Movie> Controller::findMoviesOfTitle(string title)
 {
-	DynamicVector list;
+	DynamicVector<Movie> list;
 	for (int i = 0; i < this->repository.movies.size(); i++)
 	{
 		if (this->repository.movies[i].title == title)
@@ -44,9 +44,9 @@ DynamicVector Controller::findMoviesOfTitle(string title)
 	return list;
 }
 
-DynamicVector Controller::getSortedMoviesByYear()
+DynamicVector<Movie> Controller::getSortedMoviesByYear()
 {
-	DynamicVector clone = this->repository.movies.clone();
+	DynamicVector<Movie> clone = this->repository.movies.clone();
 	for (int i = 0; i < clone.size() - 1; i++)
 	{
 		for (int j = i + 1; j < clone.size(); j++)
@@ -62,9 +62,9 @@ DynamicVector Controller::getSortedMoviesByYear()
 		return clone;
 }
 
-DynamicVector Controller::getSortedMoviesByActor()
+DynamicVector<Movie> Controller::getSortedMoviesByActor()
 {
-	DynamicVector clone = this->repository.movies.clone();
+	DynamicVector<Movie> clone = this->repository.movies.clone();
 	for (int i = 0; i < clone.size() - 1; i++)
 	{
 		for (int j = i + 1; j < clone.size(); j++)
@@ -80,9 +80,9 @@ DynamicVector Controller::getSortedMoviesByActor()
 	return clone;
 }
 
-DynamicVector Controller::getSortedMoviesByYearAndGenre()
+DynamicVector<Movie> Controller::getSortedMoviesByYearAndGenre()
 {
-	DynamicVector clone = this->repository.movies.clone();
+	DynamicVector<Movie> clone = this->repository.movies.clone();
 	for (int i = 0; i < clone.size() - 1; i++)
 	{
 		for (int j = i + 1; j < clone.size(); j++)

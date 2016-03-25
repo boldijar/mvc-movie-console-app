@@ -1,6 +1,6 @@
 #pragma once
 #include "Repository.h"
-
+#include "Movie.h"
 class Controller
 {
 
@@ -9,10 +9,10 @@ public:
 	Controller();
 
 	Movie findMovieByTitle(string title);
-	DynamicVector findMoviesOfYear(int year);
-	DynamicVector findMoviesOfTitle(string);
-	DynamicVector getSortedMoviesByYear();
-	DynamicVector getSortedMoviesByActor();
-	DynamicVector getSortedMoviesByYearAndGenre();
+	DynamicVector<Movie> findMoviesOfYear(int year);
+	DynamicVector<Movie> findMoviesOfTitle(string);
+	DynamicVector<Movie> getSortedMoviesByYear();
+	DynamicVector<Movie> getSortedMoviesByActor();
+	DynamicVector<Movie> getSortedMoviesByYearAndGenre();
 };
 

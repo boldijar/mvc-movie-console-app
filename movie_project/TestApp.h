@@ -9,12 +9,28 @@ public:
 	void runAll()
 	{
 		dynamicVectorTest();
+		intDynamicVectorTest();
 		repositoryTest();
 		controllerTest();
 	}
+	void intDynamicVectorTest()
+	{
+		DynamicVector<int> vec;
+		vec.add(1);
+		vec.add(1);
+		vec.add(5);
+		vec.add(1);
+		vec.add(1);
+		assert(vec.size() == 5);
+		DynamicVector<int> vec2 = vec.clone();
+		vec2.removeAt(4);
+		vec2.removeAt(3);
+		assert(vec2[2] == 5);
+		assert(vec2.size() == 3);
+	}
 	void dynamicVectorTest()
 	{
-		DynamicVector vector;
+		DynamicVector<Movie> vector;
 		vector.add(Movie("title", "genre", "author", 1773));
 		assert(vector.size() == 1);
 		vector.add(Movie("title", "genre2", "author", 1773));
@@ -84,7 +100,7 @@ public:
 		controller4.repository.addMovie(Movie("Movie4", "genre_b1", "author4", 5));
 		controller4.repository.addMovie(Movie("Movie5", "genre_b1", "author5", 3));
 
-		DynamicVector sortedVec = controller4.getSortedMoviesByYearAndGenre();
+		DynamicVector<Movie> sortedVec = controller4.getSortedMoviesByYearAndGenre();
 
 		assert(sortedVec[0].title == "Movie1");
 		assert(sortedVec[1].title == "Movie5");

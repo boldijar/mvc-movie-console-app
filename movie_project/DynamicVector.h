@@ -1,10 +1,9 @@
 #pragma once
-#include "Movie.h"
 #include <vector>
-class DynamicVector
+template <class T> class DynamicVector
 {
 private:
-	vector<Movie> list;
+	std::vector<T> list;
 public:
 	DynamicVector()
 	{
@@ -17,9 +16,9 @@ public:
 	}
 
 	/* ads new item */
-	void add(Movie movie)
+	void add(T item)
 	{
-		this->list.push_back(movie);
+		this->list.push_back(item);
 	}
 
 	/* removes item at position*/
@@ -39,7 +38,7 @@ public:
 	}
 
 	// now calling DynamicVector[i] will work
-	Movie &operator[](int i)
+	T &operator[](int i)
 	{
 		return list[i];
 	}
