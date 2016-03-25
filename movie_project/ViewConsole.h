@@ -10,14 +10,21 @@ private:
 	/* asks for input to choose options */
 	int getOption();
 
-	/* handles the choosen option */
-	void handleOption(int option);
+	/* handles the choosen option, returns true if should exit */
+	bool handleOption(int option);
 
 	/* shows a movie */
 	void showMovie(Movie movie);
 
 	/* shows all movies */
 	void showMovies();
+
+	/* reads a movie from keyboard*/
+	Movie readMovie();
+
+	/* adds a movie to repository, if is valid, shows error otherwise */
+	void addMovie(Movie movie);
+
 public:
 	ViewConsole();
 	/* starts the app */

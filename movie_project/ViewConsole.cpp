@@ -4,9 +4,40 @@ using namespace std;
 
 void ViewConsole::showMovies()
 {
-	for (int i = 0; i < controller.repository.movies.size(); i++)
+	DynamicVector<Movie> movies = controller.repository.movies;
+	for (int i = 0; i < movies.size(); i++)
 	{
-		showMovie(controller.repository.movies[i]);
+		showMovie(movies[i]);
+	}
+}
+
+Movie ViewConsole::readMovie()
+{
+	string title;
+	cout << "Title: ";
+	cin >> title;
+	string genre;
+	cout << "Genre: ";
+	cin >> genre;
+	string actor;
+	cout << "Actor: ";
+	cin >> actor;
+	int year;
+	cout << "Year: ";
+	cin >> year;
+	return Movie(title, genre, actor, year);
+}
+
+void ViewConsole::addMovie(Movie movie)
+{
+	try
+	{
+		controller.repository.addMovie(movie);
+		cout << "Successfully added!"<<endl;
+	}
+	catch (std::exception)
+	{
+		cout << "Invalid fields for movie."<<endl;
 	}
 }
 
@@ -20,12 +51,16 @@ void ViewConsole::start()
 	{
 		showOptions();
 		int option = getOption();
-		handleOption(option);
+		if (handleOption(option))
+		{
+			break;
+		}
 	}
 }
 
 void ViewConsole::showOptions()
 {
+	printf("0) Exit\n");
 	printf("1) List all movies\n");
 	printf("2) Add movie\n");
 	printf("3) Change movie\n");
@@ -39,20 +74,31 @@ int ViewConsole::getOption()
 	return option;
 }
 
-void ViewConsole::handleOption(int option)
-{
-	switch (option)
+bool ViewConsole::handleOption(int option)
+{	
+	if(option==0)
 	{
-	case 1:
-		showMovies();
-		break;
-	default:
-		cout << "Invalid option." << endl;
-		break;
+		return true;
 	}
+	else if (option == 1) {
+		showMovies();
+	}
+	else if (option == 2)
+	{
+		Movie movie = readMovie();
+		addMovie(movie);
+	}
+	else if (option == 3)
+	{
+
+	}
+	else {
+		cout << "Invalid option." << endl;
+	}
+	return false;
 }
 
 void ViewConsole::showMovie(Movie movie)
 {
-	cout << movie.getId() << ") " << "Title: " << movie.title << " Actor: " << movie.actor << " Genre: " << movie.genre << " Year: " << movie.year << endl;
+	cout << movie.getId() << ") " << "Title: " << movie.title << " Genre: " << movie.genre << " Actor: " << movie.actor << " Year: " << movie.year << endl;
 }
