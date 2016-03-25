@@ -21,6 +21,10 @@ bool Repository::editMovie(int id, Movie movie)
 	{
 		if (this->movies[i].getId() == id)
 		{
+			if (!movieIsValid(movie))
+			{
+				throw exception("Invalid movie");
+			}
 			this->movies[i] = movie;
 			return true;
 		}

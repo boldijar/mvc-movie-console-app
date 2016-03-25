@@ -14,7 +14,7 @@ public:
 	/*removes a movie with the choosen id, returns true if success, otherwise false*/
 	bool removeMovie(int id);
 
-	/* changes a movie, with the choosen id, returns true if success */
+	/* changes a movie, with the choosen id, returns true if success, throws exception if movie invalid  */
 	bool editMovie(int id, Movie movie);
 
 	/* returns true if movie is valid */

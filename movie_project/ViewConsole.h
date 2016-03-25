@@ -25,6 +25,10 @@ private:
 	/* adds a movie to repository, if is valid, shows error otherwise */
 	void addMovie(Movie movie);
 
+	/* changes a movie by id */
+
+	void changeMovie();
+
 public:
 	ViewConsole();
 	/* starts the app */

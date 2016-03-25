@@ -41,6 +41,30 @@ void ViewConsole::addMovie(Movie movie)
 	}
 }
 
+void ViewConsole::changeMovie()
+{
+	int id;
+	cout << "Id of the movie you wanna change: ";
+	cin >> id;
+	Movie movie = readMovie();
+
+	try
+	{
+		if (controller.repository.editMovie(id, movie))
+		{
+			cout << "Successfully changed!" << endl;
+		}
+		else
+		{
+			cout << "Invalid id" << endl;
+		}
+	}
+	catch (exception)
+	{
+		cout << "The movie has some invalid fields!"<<endl;
+	}
+}
+
 ViewConsole::ViewConsole()
 {
 }
@@ -90,7 +114,7 @@ bool ViewConsole::handleOption(int option)
 	}
 	else if (option == 3)
 	{
-
+		changeMovie();
 	}
 	else {
 		cout << "Invalid option." << endl;
