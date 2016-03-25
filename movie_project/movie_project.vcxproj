@@ -154,7 +154,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Controller.cpp" />
-    <ClCompile Include="DynamicVector.cpp" />
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="movie_project.cpp" />
     <ClCompile Include="Repository.cpp" />
