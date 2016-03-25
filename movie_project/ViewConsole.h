@@ -31,6 +31,9 @@ private:
 	/* remove movie at an id */
 	void removeMovie();
 
+	/* finds a movie*/
+	void findMovie();
+
 public:
 	ViewConsole();
 	/* starts the app */

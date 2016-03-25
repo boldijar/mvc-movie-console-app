@@ -72,6 +72,22 @@ void ViewConsole::removeMovie()
 	controller.repository.removeMovie(id);
 }
 
+void ViewConsole::findMovie()
+{
+	string title;
+	cout << "Title: ";
+	cin >> title;
+	Movie movie = controller.findMovieByTitle(title);
+	if (movie == Movie::MOVIE_EMPTY)
+	{
+		cout << "Movie not found!" << endl;
+	}
+	else
+	{
+		showMovie(movie);
+	}
+}
+
 ViewConsole::ViewConsole()
 {
 }
@@ -96,6 +112,7 @@ void ViewConsole::showOptions()
 	printf("2) Add movie\n");
 	printf("3) Change movie\n");
 	printf("4) Remove movie\n");
+	printf("5) Find movie\n");
 }
 
 int ViewConsole::getOption()
@@ -126,6 +143,10 @@ bool ViewConsole::handleOption(int option)
 	else if (option == 4)
 	{
 		removeMovie();
+	}
+	else if (option == 5)
+	{
+		findMovie();
 	}
 	else {
 		cout << "Invalid option." << endl;
