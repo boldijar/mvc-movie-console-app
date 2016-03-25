@@ -151,12 +151,14 @@
     <ClInclude Include="Repository.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TestApp.h" />
+    <ClInclude Include="ViewConsole.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="movie_project.cpp" />
     <ClCompile Include="Repository.cpp" />
+    <ClCompile Include="ViewConsole.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
