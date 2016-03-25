@@ -34,10 +34,27 @@ private:
 	/* finds a movie*/
 	void findMovie();
 
+	/* filter all the movies by title */
+	void filterMoviesByTitle();
+
+	/* filter all movies by year*/
+	void filterMoviesByYear();
+
+	/* sort movies by title */
+	void sortMoviesByTitle();
+
+	/* sort movies by actor */
+	void sortMoviesByActor();
+
+	/* sort movies by year and genre */
+	void sortMoviesByYearAndGenre();
+
 public:
 	ViewConsole();
 	/* starts the app */
 	void start();
+	/* ads some stuff into the repository as default items */
+	void addMockData();
 	
 
 };

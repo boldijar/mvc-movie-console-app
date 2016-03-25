@@ -92,6 +92,7 @@ public:
 
 		assert(controller3.getSortedMoviesByYear()[3].title == "smek");
 		assert(controller3.getSortedMoviesByActor()[3].title == "zlala");
+		assert(controller3.getSortedMoviesByTitle()[3].title == "zlala");
 
 		Controller controller4;
 		controller4.repository.addMovie(Movie("Movie1", "genre_z1", "author", 1));

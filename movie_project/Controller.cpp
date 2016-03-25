@@ -44,6 +44,24 @@ DynamicVector<Movie> Controller::findMoviesOfTitle(string title)
 	return list;
 }
 
+DynamicVector<Movie> Controller::getSortedMoviesByTitle()
+{
+	DynamicVector<Movie> clone = this->repository.movies.clone();
+	for (int i = 0; i < clone.size() - 1; i++)
+	{
+		for (int j = i + 1; j < clone.size(); j++)
+		{
+			if (clone[i].title.compare(clone[j].title)>0)
+			{
+				Movie aux = clone[i];
+				clone[i] = clone[j];
+				clone[j] = aux;
+			}
+		}
+	}
+	return clone;
+}
+
 DynamicVector<Movie> Controller::getSortedMoviesByYear()
 {
 	DynamicVector<Movie> clone = this->repository.movies.clone();

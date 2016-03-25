@@ -12,6 +12,7 @@ int main()
 	TestApp test;
 	test.runAll();
 	ViewConsole viewConsole;
+	viewConsole.addMockData();
 	viewConsole.start();
 	system("PAUSE");
     return 0;

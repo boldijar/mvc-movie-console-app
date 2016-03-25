@@ -4,6 +4,11 @@ using namespace std;
 
 void ViewConsole::showMovies(DynamicVector<Movie> movies)
 {
+	if (movies.size() == 0)
+	{
+		cout << "No result." << endl;
+		return;
+	}
 	for (int i = 0; i < movies.size(); i++)
 	{
 		showMovie(movies[i]);
@@ -88,6 +93,37 @@ void ViewConsole::findMovie()
 	}
 }
 
+void ViewConsole::filterMoviesByTitle()
+{
+	string title;
+	cout << "Title: ";
+	cin >> title;
+	showMovies(controller.findMoviesOfTitle(title));
+}
+
+void ViewConsole::filterMoviesByYear()
+{
+	int year;
+	cout << "Year: ";
+	cin >> year;
+	showMovies(controller.findMoviesOfYear(year));
+}
+
+void ViewConsole::sortMoviesByTitle()
+{
+	showMovies(controller.getSortedMoviesByTitle());
+}
+
+void ViewConsole::sortMoviesByActor()
+{
+	showMovies(controller.getSortedMoviesByActor());
+}
+
+void ViewConsole::sortMoviesByYearAndGenre()
+{
+	showMovies(controller.getSortedMoviesByYearAndGenre());
+}
+
 ViewConsole::ViewConsole()
 {
 }
@@ -105,6 +141,15 @@ void ViewConsole::start()
 	}
 }
 
+void ViewConsole::addMockData()
+{
+	controller.repository.addMovie(Movie("Titanic", "Drama", "Toni Black", 1996));
+	controller.repository.addMovie(Movie("Titanic", "Comedie", "Arsenie Boca", 1998));
+	controller.repository.addMovie(Movie("Manele", "Drama", "Toni Black", 2000));
+	controller.repository.addMovie(Movie("Florin Salam Movie", "Horror", "Adi Minune", 1990));
+	controller.repository.addMovie(Movie("Nicolae Guta", "Horror", "Dani Mocanu", 1996));
+}
+
 void ViewConsole::showOptions()
 {
 	printf("0) Exit\n");
@@ -113,6 +158,11 @@ void ViewConsole::showOptions()
 	printf("3) Change movie\n");
 	printf("4) Remove movie\n");
 	printf("5) Find movie\n");
+	printf("6) Filter movies by title\n");
+	printf("7) Filter movies by year\n");
+	printf("8) Sort movies by title\n");
+	printf("9) Sort movies by actor\n");
+	printf("10) Sort movies by year and genre\n");
 }
 
 int ViewConsole::getOption()
@@ -148,6 +198,26 @@ bool ViewConsole::handleOption(int option)
 	{
 		findMovie();
 	}
+	else if (option == 6)
+	{
+		filterMoviesByTitle();
+	}
+	else if (option == 7)
+	{
+		filterMoviesByYear();
+	}
+	else if (option == 8)
+	{
+		sortMoviesByTitle();
+	}
+	else if (option == 9)
+	{
+		sortMoviesByActor();
+	}
+	else if (option == 10)
+	{
+		sortMoviesByYearAndGenre();
+	}
 	else {
 		cout << "Invalid option." << endl;
 	}
@@ -156,5 +226,5 @@ bool ViewConsole::handleOption(int option)
 
 void ViewConsole::showMovie(Movie movie)
 {
-	cout << movie.getId() << ") " << "Title: " << movie.title << " Genre: " << movie.genre << " Actor: " << movie.actor << " Year: " << movie.year << endl;
+	cout << movie.getId() << ") " << "Title: " << movie.title << ", Genre: " << movie.genre << ", Actor: " << movie.actor << ", Year: " << movie.year << endl;
 }
