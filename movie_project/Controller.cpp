@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <random> 
 #include <chrono> 
+#include <fstream>
 
 Controller::Controller()
 {
@@ -125,6 +126,7 @@ DynamicVector<Movie> Controller::getSortedMoviesByYearAndGenre()
 	return clone;
 }
 
+/* returns a list of random movies from repo, throws OutOfRangeException */
 DynamicVector<Movie> Controller::getRandomMovies(int howMany)
 {
 	if (howMany<0 || howMany > this->repository.movies.size())
@@ -139,5 +141,25 @@ DynamicVector<Movie> Controller::getRandomMovies(int howMany)
 		list.add(shuffledOriginalList[i]);
 	}
 	return list;
+}
+
+/* adds random movies to cart , throws OutOfRangeException */
+void Controller::generateRandomCart(int howManyMovies)
+{
+	DynamicVector<Movie> randomMovies = this->getRandomMovies(howManyMovies);
+	this->cartRepository.empty();
+	this->cartRepository.addAll(randomMovies);
+}
+
+/* writes all movies in cart to file */
+void Controller::outputCartsToFile(char * filename)
+{
+	ofstream out(filename);
+	for (int i = 0; i < this->cartRepository.movies.size(); i++)
+	{
+		Movie movie = this->cartRepository.movies[i];
+		out << movie.title << "," << movie.genre << "," << movie.actor << "," << movie.year << endl;
+	}
+	out.close();
 }
 

@@ -1,11 +1,13 @@
 #pragma once
 #include "Repository.h"
 #include "Movie.h"
+#include "CartRepository.h"
 class Controller
 {
 
 public:
 	MoviesRepository repository;
+	CartRepository cartRepository;
 	Controller();
 
 	Movie findMovieByTitle(string title);
@@ -16,5 +18,8 @@ public:
 	DynamicVector<Movie> getSortedMoviesByActor();
 	DynamicVector<Movie> getSortedMoviesByYearAndGenre();
 	DynamicVector<Movie> getRandomMovies(int howMany);
+	void generateRandomCart(int howManyMovies);
+	void outputCartsToFile(char* filename);
+	
 };
 
