@@ -30,9 +30,9 @@ public:
 	DynamicVector clone()
 	{
 		DynamicVector newVector;
-		for (size_t i = 0; i < this->list.size(); i++)
+		for (T item : this->list)
 		{
-			newVector.add(this->list[i]);
+			newVector.add(item);
 		}
 		return newVector;
 	}
