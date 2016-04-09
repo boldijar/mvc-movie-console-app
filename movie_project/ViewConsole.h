@@ -1,5 +1,6 @@
 #pragma once
 #include "Controller.h"
+#include "OutOfRangeException.h"
 class ViewConsole
 {
 private:
@@ -48,6 +49,22 @@ private:
 
 	/* sort movies by year and genre */
 	void sortMoviesByYearAndGenre();
+
+	/* empties all the stuff in cart */
+	void emptyCart();
+
+	/* ads a movie of selected title */
+	void addMovieToCartByTitle();
+
+	/* shows cart to console */
+	void showCart();
+
+	/* adds random movies to cart */
+	void addRandomCarts();
+
+	/* write carts to a file */
+	void writeCart();
+
 
 public:
 	ViewConsole();

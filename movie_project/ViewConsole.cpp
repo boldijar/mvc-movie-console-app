@@ -124,6 +124,57 @@ void ViewConsole::sortMoviesByYearAndGenre()
 	showMovies(controller.getSortedMoviesByYearAndGenre());
 }
 
+void ViewConsole::emptyCart()
+{
+	this->controller.cartRepository.empty();
+	cout << "Cart was cleared!" << endl;
+}
+
+void ViewConsole::addMovieToCartByTitle()
+{
+	string title;
+	cout << "Title: ";
+	cin >> title;
+	DynamicVector<Movie> movies = this->controller.findMoviesOfTitle(title);
+	if (movies.size() == 0)
+	{
+		cout << "No movie found with the choosen title." << endl;
+	}
+	else
+	{
+		this->controller.cartRepository.add(movies[0]);
+		cout << "Movie added to cart!" << endl;
+	}
+
+}
+
+void ViewConsole::showCart()
+{
+	this->showMovies(this->controller.cartRepository.movies);
+}
+
+void ViewConsole::addRandomCarts()
+{
+	int howManyMovies;
+	cout << "How many movies you want to add? ";
+	cin >> howManyMovies;
+	try
+	{
+		this->controller.generateRandomCart(howManyMovies);
+		cout << "Successfully generated!" << endl;
+	}
+	catch (OutOfRangeException ex)
+	{
+		cout << "Invalid number of movies. Check the available list of movies" << endl;
+	}
+}
+
+void ViewConsole::writeCart()
+{
+	controller.outputCartsToFile("cart.csv");
+	cout << "Carts are now saved in cart.csv" << endl;
+}
+
 ViewConsole::ViewConsole()
 {
 }
@@ -163,7 +214,15 @@ void ViewConsole::showOptions()
 	printf("8) Sort movies by title\n");
 	printf("9) Sort movies by actor\n");
 	printf("10) Sort movies by year and genre\n");
+	printf("	CART STUFF \n");
+	printf("11) Show cart\n");
+	printf("12) Empty cart\n");
+	printf("13) Add movie to cart\n");
+	printf("14) Generate random cart\n");
+	printf("15) Print cart in file \n");
 }
+
+
 
 int ViewConsole::getOption()
 {
@@ -217,6 +276,26 @@ bool ViewConsole::handleOption(int option)
 	else if (option == 10)
 	{
 		sortMoviesByYearAndGenre();
+	}
+	else if (option == 11)
+	{
+		showCart();
+	}
+	else if (option == 12)
+	{
+		emptyCart();
+	}
+	else if (option == 13)
+	{
+		addMovieToCartByTitle();
+	}
+	else if (option == 14)
+	{
+		addRandomCarts();
+	}
+	else if (option == 15)
+	{
+		writeCart();
 	}
 	else {
 		cout << "Invalid option." << endl;
