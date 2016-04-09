@@ -1,5 +1,8 @@
 #pragma once
 #include <vector>
+#include <algorithm>
+#include <random>
+#include <chrono> 
 template <class T> class DynamicVector
 {
 private:
@@ -13,6 +16,12 @@ public:
 	/* clears all elements*/
 	void clear() {
 		this->list.clear();
+	}
+
+	/* shuffle elements */
+	void shuffle() {
+		auto seed = std::chrono::system_clock::now().time_since_epoch().count();
+		std::shuffle(this->list.begin(), this->list.end(), std::default_random_engine(seed));
 	}
 	/* returns the size of the list */
 	int size()

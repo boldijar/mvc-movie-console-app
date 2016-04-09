@@ -3,6 +3,7 @@
 #include <assert.h>
 #include "Repository.h"
 #include "Controller.h"
+#include "OutOfRangeException.h"
 #include "CartRepository.h"
 class TestApp
 {
@@ -14,8 +15,48 @@ public:
 		repositoryTest();
 		controllerTest();
 		cartRepoTest();
+		controllerWithCartTest();
 	}
 
+	void controllerWithCartTest()
+	{
+		Controller controller;
+		try
+		{
+			controller.getRandomMovies(0);
+			assert(true);
+		}
+		catch (OutOfRangeException exc) {
+			assert(false);
+		}
+		try
+		{
+			controller.getRandomMovies(1);
+			assert(false);
+		}
+		catch (OutOfRangeException exc) {
+			assert(true);
+		}
+		controller.repository.addMovie(Movie("a", "b", "c", 1990));
+		controller.repository.addMovie(Movie("a", "b", "c", 1990));
+		controller.repository.addMovie(Movie("a", "b", "c", 1990));
+		try
+		{
+			controller.getRandomMovies(-1);
+			assert(false);
+		}
+		catch (OutOfRangeException exc) {
+			assert(true);
+		}
+		try
+		{
+			controller.getRandomMovies(3);
+			assert(true);
+		}
+		catch (OutOfRangeException exc) {
+			assert(false);
+		}
+	}
 	void cartRepoTest() {
 		CartRepository repo;
 		repo.add(Movie("a", "b", "c", 1000));

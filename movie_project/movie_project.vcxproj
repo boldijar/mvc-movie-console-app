@@ -149,6 +149,7 @@
     <ClInclude Include="Controller.h" />
     <ClInclude Include="DynamicVector.h" />
     <ClInclude Include="Movie.h" />
+    <ClInclude Include="OutOfRangeException.h" />
     <ClInclude Include="Repository.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TestApp.h" />

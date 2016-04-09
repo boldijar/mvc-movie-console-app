@@ -15,5 +15,6 @@ public:
 	DynamicVector<Movie> getSortedMoviesByYear();
 	DynamicVector<Movie> getSortedMoviesByActor();
 	DynamicVector<Movie> getSortedMoviesByYearAndGenre();
+	DynamicVector<Movie> getRandomMovies(int howMany);
 };
 

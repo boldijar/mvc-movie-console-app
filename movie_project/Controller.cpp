@@ -1,6 +1,9 @@
 #include "Controller.h"
 #include <string>
-
+#include "OutOfRangeException.h"
+#include <algorithm>
+#include <random> 
+#include <chrono> 
 
 Controller::Controller()
 {
@@ -120,5 +123,21 @@ DynamicVector<Movie> Controller::getSortedMoviesByYearAndGenre()
 		}
 	}
 	return clone;
+}
+
+DynamicVector<Movie> Controller::getRandomMovies(int howMany)
+{
+	if (howMany<0 || howMany > this->repository.movies.size())
+	{
+		throw OutOfRangeException("Size is " + this->repository.movies.size());
+	}
+	DynamicVector<Movie> list;
+	DynamicVector<Movie> shuffledOriginalList = this->repository.movies.clone();
+	shuffledOriginalList.shuffle();
+	for (int i = 0; i < howMany; i++)
+	{
+		list.add(shuffledOriginalList[i]);
+	}
+	return list;
 }
 
