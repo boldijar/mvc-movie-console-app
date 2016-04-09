@@ -2,11 +2,11 @@
 
 
 
-Repository::Repository()
+MoviesRepository::MoviesRepository()
 {
 }
 
-void Repository::addMovie(Movie movie)
+void MoviesRepository::addMovie(Movie movie)
 {	
 	if (!movieIsValid(movie))
 	{
@@ -15,7 +15,7 @@ void Repository::addMovie(Movie movie)
 	this->movies.add(movie);
 }
 
-bool Repository::editMovie(int id, Movie movie)
+bool MoviesRepository::editMovie(int id, Movie movie)
 {
 	for (int i = 0; i < this->movies.size(); i++)
 	{
@@ -31,11 +31,11 @@ bool Repository::editMovie(int id, Movie movie)
 	}
 	return false;
 }
-bool Repository::movieIsValid(Movie movie)
+bool MoviesRepository::movieIsValid(Movie movie)
 {
 	return movie.actor.size() > 0 && movie.title.size() > 0 && movie.genre.size() > 0 && movie.year > 0 && movie.year < 2017;
 }
-bool Repository::removeMovie(int id)
+bool MoviesRepository::removeMovie(int id)
 {
 	for (int i = 0; i < this->movies.size(); i++)
 	{

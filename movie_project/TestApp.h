@@ -51,7 +51,7 @@ public:
 	}
 	void repositoryTest()
 	{
-		Repository repository;
+		MoviesRepository repository;
 		repository.addMovie(Movie("t1", "g1", "a1", 2000));
 		repository.addMovie(Movie("t2", "g2", "a2", 2000));
 		repository.addMovie(Movie("t3", "g3", "a3", 2000));

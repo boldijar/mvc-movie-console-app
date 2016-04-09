@@ -39,6 +39,9 @@
     <ClInclude Include="ViewConsole.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CartRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="movie_project.cpp">
@@ -54,6 +57,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ViewConsole.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CartRepository.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

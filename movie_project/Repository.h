@@ -2,11 +2,11 @@
 #pragma once
 #include "DynamicVector.h"
 #include "Movie.h"
-class Repository
+class MoviesRepository
 {
 public:
 	DynamicVector<Movie> movies;
-	Repository();
+	MoviesRepository();
 
 	/*adds a new movie, throws exception if invalid movie */
 	void addMovie(Movie movie);

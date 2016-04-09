@@ -5,7 +5,7 @@ class Controller
 {
 
 public:
-	Repository repository;
+	MoviesRepository repository;
 	Controller();
 
 	Movie findMovieByTitle(string title);

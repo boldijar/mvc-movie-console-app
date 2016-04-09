@@ -145,6 +145,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CartRepository.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="DynamicVector.h" />
     <ClInclude Include="Movie.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="ViewConsole.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CartRepository.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="movie_project.cpp" />
