@@ -38,6 +38,7 @@ void ViewConsole::addMovie(Movie movie)
 	{
 		controller.repository.addMovie(movie);
 		cout << "Successfully added!"<<endl;
+		controller.repository.saveToFile();
 	}
 	catch (std::exception)
 	{
@@ -57,6 +58,7 @@ void ViewConsole::changeMovie()
 		if (controller.repository.editMovie(id, movie))
 		{
 			cout << "Successfully changed!" << endl;
+			controller.repository.saveToFile();
 		}
 		else
 		{
@@ -75,6 +77,7 @@ void ViewConsole::removeMovie()
 	cout << "Id of the movie you want to delete: ";
 	cin >> id;
 	controller.repository.removeMovie(id);
+	controller.repository.saveToFile();
 }
 
 void ViewConsole::findMovie()
@@ -181,6 +184,7 @@ ViewConsole::ViewConsole()
 
 void ViewConsole::start()
 {
+	controller.repository.loadFromFile();
 	while (1)
 	{
 		showOptions();
@@ -194,11 +198,13 @@ void ViewConsole::start()
 
 void ViewConsole::addMockData()
 {
+	/*
 	controller.repository.addMovie(Movie("Titanic", "Drama", "Toni Black", 1996));
 	controller.repository.addMovie(Movie("Titanic", "Comedie", "Arsenie Boca", 1998));
 	controller.repository.addMovie(Movie("Manele", "Drama", "Toni Black", 2000));
 	controller.repository.addMovie(Movie("Florin Salam Movie", "Horror", "Adi Minune", 1990));
 	controller.repository.addMovie(Movie("Nicolae Guta", "Horror", "Dani Mocanu", 1996));
+	*/
 }
 
 void ViewConsole::showOptions()
