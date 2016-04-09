@@ -27,6 +27,15 @@ public:
 		vec2.removeAt(3);
 		assert(vec2[2] == 5);
 		assert(vec2.size() == 3);
+
+		DynamicVector<int> vec3;
+		vec3.add(10);
+		vec3 = vec3 + 5;
+		assert(vec3[1] == 5);
+		vec3.add(2);
+		vec3.add(4);
+		vec3 = vec3 - 2;
+		assert(vec3.size() == 3);
 	}
 	void dynamicVectorTest()
 	{

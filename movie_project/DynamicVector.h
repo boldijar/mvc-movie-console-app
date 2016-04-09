@@ -42,5 +42,24 @@ public:
 	{
 		return list[i];
 	}
+
+	DynamicVector operator+(const T& item)
+	{
+		this->add(item);
+		return *this;
+	}
+	DynamicVector operator-(const T&item)
+	{
+		for (int i = 0; i < this->list.size(); i++)
+		{
+			if (this->list[i] == item)
+			{
+				this->list.erase(this->list.begin() + i);
+				return *this;
+			}
+		}
+		return *this;
+	}
+
 };
  
