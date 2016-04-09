@@ -12,7 +12,11 @@ public:
 
 	/* will empty the cart */
 	void empty();
+	
+	/* will add a new movie to cart */
+	void add(Movie movie);
 
-	/* */
+	/* adds all movies to cart */
+	void addAll(DynamicVector<Movie> movies);
 };
 

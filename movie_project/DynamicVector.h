@@ -9,6 +9,11 @@ public:
 	{
 
 	}
+
+	/* clears all elements*/
+	void clear() {
+		this->list.clear();
+	}
 	/* returns the size of the list */
 	int size()
 	{

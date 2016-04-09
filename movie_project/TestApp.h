@@ -3,6 +3,7 @@
 #include <assert.h>
 #include "Repository.h"
 #include "Controller.h"
+#include "CartRepository.h"
 class TestApp
 {
 public:
@@ -12,6 +13,25 @@ public:
 		intDynamicVectorTest();
 		repositoryTest();
 		controllerTest();
+		cartRepoTest();
+	}
+
+	void cartRepoTest() {
+		CartRepository repo;
+		repo.add(Movie("a", "b", "c", 1000));
+		repo.add(Movie("a", "b", "c", 1000));
+		repo.add(Movie("a", "b", "c", 1000));
+		assert(repo.movies.size() == 3);
+		repo.empty();
+		assert(repo.movies.size() == 0);
+
+		DynamicVector<Movie> movies;
+		movies.add(Movie("a", "a", "a", 1880));
+		movies.add(Movie("a", "a", "a", 1880));
+		movies.add(Movie("a", "a", "a", 1880));
+		repo.add(Movie("a", "a", "a", 1880));
+		repo.addAll(movies);
+		assert(repo.movies.size() == 4);
 	}
 	void intDynamicVectorTest()
 	{
@@ -36,6 +56,8 @@ public:
 		vec3.add(4);
 		vec3 = vec3 - 2;
 		assert(vec3.size() == 3);
+		vec3.clear();
+		assert(vec3.size() == 0);
 	}
 	void dynamicVectorTest()
 	{
