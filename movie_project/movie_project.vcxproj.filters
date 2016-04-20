@@ -45,6 +45,9 @@
     <ClInclude Include="MoviesRepository.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MoviesFileRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="movie_project.cpp">
@@ -63,6 +66,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MoviesRepository.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoviesFileRepository.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

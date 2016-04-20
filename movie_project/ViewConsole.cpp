@@ -38,7 +38,6 @@ void ViewConsole::addMovie(Movie movie)
 	{
 		controller.repository.addMovie(movie);
 		cout << "Successfully added!"<<endl;
-		controller.repository.saveToFile();
 	}
 	catch (std::exception)
 	{
@@ -58,7 +57,6 @@ void ViewConsole::changeMovie()
 		if (controller.repository.editMovie(id, movie))
 		{
 			cout << "Successfully changed!" << endl;
-			controller.repository.saveToFile();
 		}
 		else
 		{
@@ -77,7 +75,6 @@ void ViewConsole::removeMovie()
 	cout << "Id of the movie you want to delete: ";
 	cin >> id;
 	controller.repository.removeMovie(id);
-	controller.repository.saveToFile();
 }
 
 void ViewConsole::findMovie()
@@ -184,7 +181,6 @@ ViewConsole::ViewConsole()
 
 void ViewConsole::start()
 {
-	controller.repository.loadFromFile();
 	while (1)
 	{
 		showOptions();

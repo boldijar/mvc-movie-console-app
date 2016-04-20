@@ -37,40 +37,6 @@ bool MoviesRepository::movieIsValid(Movie movie)
 	return movie.actor.size() > 0 && movie.title.size() > 0 && movie.genre.size() > 0 && movie.year > 0 && movie.year < 2017;
 }
 
-std::vector<std::string> split(const std::string &text, char sep) {
-	std::vector<std::string> tokens;
-	std::size_t start = 0, end = 0;
-	while ((end = text.find(sep, start)) != std::string::npos) {
-		tokens.push_back(text.substr(start, end - start));
-		start = end + 1;
-	}
-	tokens.push_back(text.substr(start));
-	return tokens;
-}
-void MoviesRepository::loadFromFile()
-{
-	ifstream file(DATABASE);
-	this->movies.clear();
-	std::string line;
-	while (std::getline(file, line))
-	{
-		vector<string> columns = split(line, ',');
-		addMovie(Movie(columns[0], columns[1], columns[2], atoi(columns[3].c_str())));
-	}
-	file.close();
-}
-
-void MoviesRepository::saveToFile()
-{
-	ofstream file(DATABASE);
-	for (int i = 0; i < this->movies.size(); i++)
-	{
-		Movie movie = this->movies[i];
-		file << movie.title << "," << movie.genre << "," << movie.actor << "," << movie.year << endl;
-	}
-	file.close();
-}
-
 bool MoviesRepository::removeMovie(int id)
 {
 	for (int i = 0; i < this->movies.size(); i++)

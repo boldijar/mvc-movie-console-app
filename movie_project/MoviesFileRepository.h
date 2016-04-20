@@ -1,14 +1,11 @@
 #pragma once
-#pragma once
-#include "DynamicVector.h"
-#include "Movie.h"
-#include <iostream>
-class MoviesRepository
+#include "MoviesRepository.h"
+class MoviesFileRepository : public MoviesRepository
 {
-
+private:
+	const char* DATABASE = "database.csv";
 public:
-	DynamicVector<Movie> movies;
-	MoviesRepository();
+	MoviesFileRepository();
 
 	/*adds a new movie, throws exception if invalid movie */
 	void addMovie(Movie movie);
@@ -22,5 +19,10 @@ public:
 	/* returns true if movie is valid */
 	bool movieIsValid(Movie movie);
 
+	/* loads stuff from file */
+	void loadFromFile();
+
+	/* saves to file the movies */
+	void saveToFile();
 };
 
