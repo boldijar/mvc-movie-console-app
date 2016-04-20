@@ -10,6 +10,11 @@ Controller::Controller()
 {
 }
 
+Controller::Controller(MoviesRepository repo)
+{
+	this->repository = repo;
+}
+
 Movie Controller::findMovieByTitle(string title)
 {
 	for (int i = 0; i < this->repository.movies.size(); i++)

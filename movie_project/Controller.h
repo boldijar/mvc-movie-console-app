@@ -9,6 +9,7 @@ public:
 	MoviesRepository repository;
 	CartRepository cartRepository;
 	Controller();
+	Controller(MoviesRepository);
 
 	Movie findMovieByTitle(string title);
 	DynamicVector<Movie> findMoviesOfYear(int year);

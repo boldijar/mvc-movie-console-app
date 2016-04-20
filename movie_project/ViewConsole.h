@@ -68,6 +68,7 @@ private:
 
 public:
 	ViewConsole();
+	ViewConsole(Controller);
 	/* starts the app */
 	void start();
 	/* ads some stuff into the repository as default items */

@@ -179,6 +179,11 @@ ViewConsole::ViewConsole()
 {
 }
 
+ViewConsole::ViewConsole(Controller controller)
+{
+	this->controller = controller;
+}
+
 void ViewConsole::start()
 {
 	while (1)
