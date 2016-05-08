@@ -4,7 +4,7 @@
 class ViewConsole
 {
 private:
-	Controller controller;
+	Controller&  controller;
 	/* show available console options */
 	void showOptions();
 
@@ -68,7 +68,7 @@ private:
 
 public:
 	ViewConsole();
-	ViewConsole(Controller);
+	ViewConsole(Controller&);
 	/* starts the app */
 	void start();
 	/* ads some stuff into the repository as default items */

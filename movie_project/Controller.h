@@ -6,10 +6,10 @@ class Controller
 {
 
 public:
-	MoviesRepository repository;
+	MoviesRepository &repository;
 	CartRepository cartRepository;
 	Controller();
-	Controller(MoviesRepository);
+	Controller(MoviesRepository& repo);
 
 	Movie findMovieByTitle(string title);
 	DynamicVector<Movie> findMoviesOfYear(int year);
@@ -21,6 +21,7 @@ public:
 	DynamicVector<Movie> getRandomMovies(int howMany);
 	void generateRandomCart(int howManyMovies);
 	void outputCartsToFile(char* filename);
+	void outputCartsToWebPage(char* filename);
 	
 };
 

@@ -1,11 +1,12 @@
 #pragma once
 #include "MoviesRepository.h"
-class MoviesFileRepository : public MoviesRepository
+
+class MoviesHtmlRepository : public MoviesRepository
 {
 private:
-	const char* DATABASE = "data.csv";
+	const char* DATABASE = "data.html";
 public:
-	MoviesFileRepository();
+	MoviesHtmlRepository();
 
 	/*adds a new movie, throws exception if invalid movie */
 	void addMovie(Movie movie);

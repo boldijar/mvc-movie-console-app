@@ -129,7 +129,11 @@ public:
 	}
 	void controllerTest()
 	{
-		Controller controller;
+		MoviesRepository repository;
+		MoviesRepository repository2;
+		MoviesRepository repository3;
+		MoviesRepository repository4;
+		Controller controller(repository);
 		controller.repository.addMovie(Movie("t1", "g1", "a1", 2000));
 		controller.repository.addMovie(Movie("t2", "g2", "a2", 2000));
 		controller.repository.addMovie(Movie("t3", "g3", "a3", 2000));
@@ -139,8 +143,8 @@ public:
 		assert(controller.findMovieByTitle("titanic") == Movie::MOVIE_EMPTY);
 		assert(controller.repository.removeMovie(controller.findMovieByTitle("t5").getId()));
 		assert(controller.findMovieByTitle("t5") == Movie::MOVIE_EMPTY);
-
-		Controller controller2;
+		
+		Controller controller2(repository2);
 		controller2.repository.addMovie(Movie("t1", "g1", "a1", 1));
 		controller2.repository.addMovie(Movie("t2", "g2", "a2", 2));
 		controller2.repository.addMovie(Movie("t3", "g3", "a3", 3));
@@ -156,7 +160,7 @@ public:
 		assert(controller2.findMoviesOfTitle("t5").size() == 2);
 
 
-		Controller controller3;
+		Controller controller3(repository3);
 		controller3.repository.addMovie(Movie("zlala", "aa", "z1", 1));
 		controller3.repository.addMovie(Movie("t100", "zc", "d1", 10));
 		controller3.repository.addMovie(Movie("smek", "s2", "b1", 100));
@@ -166,7 +170,7 @@ public:
 		assert(controller3.getSortedMoviesByActor()[3].title == "zlala");
 		assert(controller3.getSortedMoviesByTitle()[3].title == "zlala");
 
-		Controller controller4;
+		Controller controller4(repository4);
 		controller4.repository.addMovie(Movie("Movie1", "genre_z1", "author", 1));
 		controller4.repository.addMovie(Movie("Movie2", "genre_d1", "author2", 10));
 		controller4.repository.addMovie(Movie("Movie3", "genre_b1", "author3", 10));
@@ -180,6 +184,6 @@ public:
 		assert(sortedVec[2].title == "Movie4");
 		assert(sortedVec[3].title == "Movie3");
 		assert(sortedVec[4].title == "Movie2");
-
+	
 	}
 };

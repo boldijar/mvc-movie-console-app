@@ -150,6 +150,7 @@
     <ClInclude Include="DynamicVector.h" />
     <ClInclude Include="Movie.h" />
     <ClInclude Include="MoviesFileRepository.h" />
+    <ClInclude Include="MoviesHtmlRepository.h" />
     <ClInclude Include="OutOfRangeException.h" />
     <ClInclude Include="MoviesRepository.h" />
     <ClInclude Include="targetver.h" />
@@ -161,6 +162,7 @@
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="MoviesFileRepository.cpp" />
+    <ClCompile Include="MoviesHtmlRepository.cpp" />
     <ClCompile Include="movie_project.cpp" />
     <ClCompile Include="MoviesRepository.cpp" />
     <ClCompile Include="ViewConsole.cpp" />

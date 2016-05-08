@@ -6,13 +6,12 @@
 #include <chrono> 
 #include <fstream>
 
-Controller::Controller()
+Controller::Controller():repository(MoviesRepository())
 {
 }
 
-Controller::Controller(MoviesRepository repo)
+Controller::Controller(MoviesRepository& repo) : repository{ repo }
 {
-	this->repository = repo;
 }
 
 Movie Controller::findMovieByTitle(string title)
@@ -165,6 +164,21 @@ void Controller::outputCartsToFile(char * filename)
 		Movie movie = this->cartRepository.movies[i];
 		out << movie.title << "," << movie.genre << "," << movie.actor << "," << movie.year << endl;
 	}
+	out.close();
+}
+
+void Controller::outputCartsToWebPage(char * filename)
+{
+	ofstream out(filename);
+	out << "<table style=\"width:100 % \">\n";
+	for (int i = 0; i < this->cartRepository.movies.size(); i++)
+	{
+		Movie movie = this->cartRepository.movies[i];
+		out << "<tr>";
+		out << "<td>"<<movie.title << "</td>\n<td>" << movie.genre << "</td>\n<td>" << movie.actor << "</td>\n<td>" << movie.year << "</td>"<<endl;
+		out << "</tr>\n";
+	}
+	out << "</table>";
 	out.close();
 }
 

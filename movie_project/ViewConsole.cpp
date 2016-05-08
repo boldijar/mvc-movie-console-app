@@ -172,16 +172,12 @@ void ViewConsole::addRandomCarts()
 void ViewConsole::writeCart()
 {
 	controller.outputCartsToFile("cart.csv");
+	controller.outputCartsToWebPage("cart.html");
 	cout << "Carts are now saved in cart.csv" << endl;
 }
 
-ViewConsole::ViewConsole()
+ViewConsole::ViewConsole(Controller& _controller):controller(_controller)
 {
-}
-
-ViewConsole::ViewConsole(Controller controller)
-{
-	this->controller = controller;
 }
 
 void ViewConsole::start()
@@ -195,17 +191,6 @@ void ViewConsole::start()
 			break;
 		}
 	}
-}
-
-void ViewConsole::addMockData()
-{
-	/*
-	controller.repository.addMovie(Movie("Titanic", "Drama", "Toni Black", 1996));
-	controller.repository.addMovie(Movie("Titanic", "Comedie", "Arsenie Boca", 1998));
-	controller.repository.addMovie(Movie("Manele", "Drama", "Toni Black", 2000));
-	controller.repository.addMovie(Movie("Florin Salam Movie", "Horror", "Adi Minune", 1990));
-	controller.repository.addMovie(Movie("Nicolae Guta", "Horror", "Dani Mocanu", 1996));
-	*/
 }
 
 void ViewConsole::showOptions()
